@@ -209,7 +209,7 @@
 // ];
 
 // const showLight = function (i) {
-  
+
 //   console.log(lights[i].color);
 
 //   setTimeout(() => {
@@ -223,4 +223,17 @@
 
 // showLight(0);
 
-u
+// function createUser(firstName, lastName, age) {
+//   const user = {
+//     firstName,
+//     lastName,
+//     age,
+//     getUserAge() {
+//       return new Date().getFullYear() - user.age;
+//     },
+//   };
+//   return user;
+// }
+// const user1 = createUser("shubh", "mishra", 21);
+// console.log(user1);
+// console.log(user1.getUserAge());

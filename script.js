@@ -457,3 +457,106 @@
 // account.withdraw(500);
 
 // console.log(account.balance);
+
+// class Counter {
+//   count = 0;
+
+//   increment() {
+//     this.count++;
+//   }
+
+//   decrement() {
+//     this.count--;
+//   }
+
+//   reset() {
+//     this.count = 0;
+//   }
+// }
+
+// const c = new Counter();
+
+// c.increment();
+
+// console.log(c.count);
+
+// class Car {
+//   constructor(brand, model, year) {
+//     this.brand = brand;
+//     this.model = model;
+//     this.year = year;
+//   }
+
+//   getDetails() {
+//     return `${this.brand} ${this.model} (${this.year})`;
+//   }
+// }
+
+// const car = new Car("toyota", "inova", 2024);
+
+// console.log(car.getDetails());
+
+// class Calculator {
+//   add(a, b) {
+//     return a + b;
+//   }
+//   subtract(a, b) {
+//     return a - b;
+//   }
+//   multiply(a, b) {
+//     return a * b;
+//   }
+//   divide(a, b) {
+//     return a / b;
+//   }
+// }
+
+// const calc = new Calculator();
+
+// console.log(calc.add(10, 20));
+// console.log(calc.subtract(100, 20));
+
+// class Book {
+//   constructor(title, author, isBorrowed) {
+//     this.title = title;
+//     this.author = author;
+//     this.isBorrowed = false;
+//   }
+
+//   borrowBook() {
+//     this.isBorrowed = true;
+//   }
+
+//   returnBook() {
+//     this.isBorrowed = false;
+//   }
+// }
+
+// const book = new Book("Atomic Habits", "James Clear");
+
+// book.borrowBook();
+
+// console.log(book.isBorrowed);
+
+// book.returnBook();
+
+// console.log(book.isBorrowed);
+
+class Employee {
+  constructor(name, salary) {
+    this.name = name;
+    this.salary = salary;
+  }
+
+  increaseSalary(percent) {
+    let newSalary = (percent / 100) * this.salary;
+    return (this.salary += newSalary);
+  }
+}
+const emp = new Employee("Shubh", 50000);
+
+emp.increaseSalary(10);
+
+console.log(emp.salary);
+
+// 55000

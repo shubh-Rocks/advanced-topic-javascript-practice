@@ -542,21 +542,39 @@
 
 // console.log(book.isBorrowed);
 
-class Employee {
-  constructor(name, salary) {
-    this.name = name;
-    this.salary = salary;
+// class Employee {
+//   constructor(name, salary) {
+//     this.name = name;
+//     this.salary = salary;
+//   }
+
+//   increaseSalary(percent) {
+//     let newSalary = (percent / 100) * this.salary;
+//     return (this.salary += newSalary);
+//   }
+// }
+// const emp = new Employee("Shubh", 50000);
+
+// emp.increaseSalary(10);
+
+// console.log(emp.salary);
+
+// // 55000
+
+var checkIfInstanceOf = function (obj, classFunction) {
+  if (obj === null || obj === undefined) return false;
+
+  if (typeof classFunction !== "function") return false;
+
+  let currentPrototype = Object.getPrototypeOf(obj);
+
+  while (currentPrototype !== null) {
+    if (currentPrototype === classFunction.prototype) {
+      return true;
+    }
+
+    currentPrototype = Object.getPrototypeOf(currentPrototype);
   }
 
-  increaseSalary(percent) {
-    let newSalary = (percent / 100) * this.salary;
-    return (this.salary += newSalary);
-  }
-}
-const emp = new Employee("Shubh", 50000);
-
-emp.increaseSalary(10);
-
-console.log(emp.salary);
-
-// 55000
+  return false;
+};

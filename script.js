@@ -561,20 +561,89 @@
 
 // // 55000
 
-var checkIfInstanceOf = function (obj, classFunction) {
-  if (obj === null || obj === undefined) return false;
+// var checkIfInstanceOf = function (obj, classFunction) {
+//   if (obj === null || obj === undefined) return false;
 
-  if (typeof classFunction !== "function") return false;
+//   if (typeof classFunction !== "function") return false;
 
-  let currentPrototype = Object.getPrototypeOf(obj);
+//   let currentPrototype = Object.getPrototypeOf(obj);
 
-  while (currentPrototype !== null) {
-    if (currentPrototype === classFunction.prototype) {
-      return true;
+//   while (currentPrototype !== null) {
+//     if (currentPrototype === classFunction.prototype) {
+//       return true;
+//     }
+
+//     currentPrototype = Object.getPrototypeOf(currentPrototype);
+//   }
+
+//   return false;
+// };
+
+// let num = 23;
+
+// for (let i = 0; i < num; i++) {
+//   console.log(i=+i)
+// }
+
+// let arr= 12345
+
+// arr.toString
+// console.log(arr)
+// // for (let i =0;i<arr.length;i++){
+// //   console.log(arr[i]);
+
+// // }
+
+// let num = 1,2
+// console.log(num);
+
+var sumAndMultiply = function (s, queries) {
+  const MOD = 1000000007n;
+  const n = s.length;
+
+  let pos = new Int32Array(n);
+  let prefixVal = [0n];
+  let prefixSum = [0];
+
+  let nzCount = 0;
+
+  for (let i = 0; i < n; i++) {
+    if (s[i] !== "0") {
+      nzCount++;
+      let digit = BigInt(s[i]);
+      let prevVal = prefixVal[nzCount - 1];
+
+      prefixVal.push((prevVal * 10n + digit) % MOD);
+      prefixSum.push(prefixSum[nzCount - 1] + Number(s[i]));
     }
-
-    currentPrototype = Object.getPrototypeOf(currentPrototype);
+    pos[i] = nzCount;
   }
 
-  return false;
+  let pow10 = [1n];
+  for (let i = 1; i <= nzCount; i++) {
+    pow10.push((pow10[i - 1] * 10n) % MOD);
+  }
+
+  let result = [];
+
+  for (let i = 0; i < queries.length; i++) {
+    let [l, r] = queries[i];
+
+    let R = pos[r];
+    let L = l > 0 ? pos[l - 1] + 1 : 1;
+
+    if (L > R) {
+      result.push(0);
+    } else {
+      let len = R - L + 1;
+      let sum = prefixSum[R] - prefixSum[L - 1];
+
+      let subVal = (prefixVal[L - 1] * pow10[len]) % MOD;
+      let x = (prefixVal[R] - subVal + MOD) % MOD;
+
+      let ans = (x * BigInt(sum)) % MOD;
+      result.push(Number(ans));
+    }
+  }
+  return result;
 };

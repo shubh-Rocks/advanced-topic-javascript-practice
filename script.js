@@ -594,56 +594,93 @@
 
 // // }
 
-// let num = 1,2
 // console.log(num);
 
-var sumAndMultiply = function (s, queries) {
-  const MOD = 1000000007n;
-  const n = s.length;
+// var sumAndMultiply = function (s, queries) {
+//   const MOD = 1000000007n;
+//   const n = s.length;
 
-  let pos = new Int32Array(n);
-  let prefixVal = [0n];
-  let prefixSum = [0];
+//   let pos = new Int32Array(n);
+//   let prefixVal = [0n];
+//   let prefixSum = [0];
 
-  let nzCount = 0;
+//   let nzCount = 0;
 
-  for (let i = 0; i < n; i++) {
-    if (s[i] !== "0") {
-      nzCount++;
-      let digit = BigInt(s[i]);
-      let prevVal = prefixVal[nzCount - 1];
+//   for (let i = 0; i < n; i++) {
+//     if (s[i] !== "0") {
+//       nzCount++;
+//       let digit = BigInt(s[i]);
+//       let prevVal = prefixVal[nzCount - 1];
 
-      prefixVal.push((prevVal * 10n + digit) % MOD);
-      prefixSum.push(prefixSum[nzCount - 1] + Number(s[i]));
-    }
-    pos[i] = nzCount;
-  }
+//       prefixVal.push((prevVal * 10n + digit) % MOD);
+//       prefixSum.push(prefixSum[nzCount - 1] + Number(s[i]));
+//     }
+//     pos[i] = nzCount;
+//   }
 
-  let pow10 = [1n];
-  for (let i = 1; i <= nzCount; i++) {
-    pow10.push((pow10[i - 1] * 10n) % MOD);
-  }
+//   let pow10 = [1n];
+//   for (let i = 1; i <= nzCount; i++) {
+//     pow10.push((pow10[i - 1] * 10n) % MOD);
+//   }
 
-  let result = [];
+//   let result = [];
 
-  for (let i = 0; i < queries.length; i++) {
-    let [l, r] = queries[i];
+//   for (let i = 0; i < queries.length; i++) {
+//     let [l, r] = queries[i];
 
-    let R = pos[r];
-    let L = l > 0 ? pos[l - 1] + 1 : 1;
+//     let R = pos[r];
+//     let L = l > 0 ? pos[l - 1] + 1 : 1;
 
-    if (L > R) {
-      result.push(0);
-    } else {
-      let len = R - L + 1;
-      let sum = prefixSum[R] - prefixSum[L - 1];
+//     if (L > R) {
+//       result.push(0);
+//     } else {
+//       let len = R - L + 1;
+//       let sum = prefixSum[R] - prefixSum[L - 1];
 
-      let subVal = (prefixVal[L - 1] * pow10[len]) % MOD;
-      let x = (prefixVal[R] - subVal + MOD) % MOD;
+//       let subVal = (prefixVal[L - 1] * pow10[len]) % MOD;
+//       let x = (prefixVal[R] - subVal + MOD) % MOD;
 
-      let ans = (x * BigInt(sum)) % MOD;
-      result.push(Number(ans));
-    }
-  }
-  return result;
-};
+//       let ans = (x * BigInt(sum)) % MOD;
+//       result.push(Number(ans));
+//     }
+//   }
+//   return result;
+// };
+
+// let n = 1234;
+// let rev = 0;
+// if (n > 0) {
+//   let tem = n;
+//   while (tem > 0) {
+//     let rem = tem % 10;
+//     rev = rev * 10 + rem;
+//     tem = Math.floor(tem / 10);
+//   }
+// }
+
+// console.log(rev);
+
+// let num = 131244;
+// let tem = num;
+// let sum = 0;
+// if (num > 0) {
+//   while (num > 0) {
+//     let fact = 1;
+//     let rem = num % 10;
+//     for (let i = 1; i <= rem; i++) {
+//       fact = fact * i;
+//     }
+//     num = Math.floor(num / 10);
+//     sum += fact;
+//   }
+// }
+
+// if (sum === tem) {
+//   console.log(tem, ":is strong number");
+// }else{
+//     console.log(tem ,":is not strong number");
+    
+// }
+
+
+

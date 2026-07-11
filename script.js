@@ -742,4 +742,32 @@
 //     }
 //   }
 //   console.log();
+// // }
+
+// let prompt = require("prompt-sync")();
+// let num = Number(prompt("enter a number : "));
+
+// for (i = 1; i <= num; i++) {
+//   for (j = 1; j <= num - i; j++) {
+//     process.stdout.write(" ");
+//   }
+//   for (k = 1; k <= i; k++) {
+//     process.stdout.write("* ");
+//   }
+//   console.log();
 // }
+
+// var isPalindrome = function(x) {
+//     if (x < 0) return false;
+
+//     let original = x;
+//     let reverse = 0;
+
+//     while (x > 0) {
+//         let digit = x % 10;
+//         reverse = reverse * 10 + digit;
+//         x = Math.floor(x / 10);
+//     }
+
+//     return original === reverse;
+// };

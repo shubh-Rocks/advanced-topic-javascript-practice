@@ -791,3 +791,9 @@
 //   }
 //   return value;
 // };
+
+
+
+var gcdOfOddEvenSums = function(n) {
+    return n
+};

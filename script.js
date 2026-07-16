@@ -792,8 +792,43 @@
 //   return value;
 // };
 
+// var gcdOfOddEvenSums = function(n) {
+//     return n
+// };
 
+// var gcdSum = function(nums) {
+//     const n = nums.length;
+//     if (n < 2) {
+//         return 0;
+//     }
+//     const gcd = (a, b) => {
+//         while (b !== 0) {
+//             let temp = b;
+//             b = a % b;
+//             a = temp;
+//         }
+//         return a;
+//     };
 
-var gcdOfOddEvenSums = function(n) {
-    return n
-};
+//     const prefixGcd = [];
+//     let currentMax = 0;
+
+//     for (let i = 0; i < n; i++) {
+//         currentMax = Math.max(currentMax, nums[i]);
+//         prefixGcd.push(gcd(nums[i], currentMax));
+//     }
+//     prefixGcd.sort((a, b) => a - b);
+
+//     let totalSum = 0;
+//     let left = 0;
+//     let right = n - 1;
+
+//     while (left < right) {
+
+//         totalSum += gcd(prefixGcd[left], prefixGcd[right]);
+//         left++;
+//         right--;
+//     }
+
+//     return totalSum
+// };

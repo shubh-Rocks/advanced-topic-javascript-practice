@@ -832,3 +832,65 @@
 
 //     return totalSum
 // };
+
+// var gcdValues = function (nums, queries) {
+//   let maxVal = 0;
+//   for (let num of nums) {
+//     if (num > maxVal) maxVal = num;
+//   }
+
+//   let freq = new Int32Array(maxVal + 1);
+//   for (let num of nums) {
+//     freq[num]++;
+//   }
+
+//   let multiplesCount = new Int32Array(maxVal + 1);
+//   for (let i = 1; i <= maxVal; i++) {
+//     let count = 0;
+//     for (let j = i; j <= maxVal; j += i) {
+//       count += freq[j];
+//     }
+//     multiplesCount[i] = count;
+//   }
+
+//   let exactCount = new Float64Array(maxVal + 1);
+//   for (let i = maxVal; i >= 1; i--) {
+//     let c = multiplesCount[i];
+//     let pairs = (c * (c - 1)) / 2;
+
+//     for (let j = 2 * i; j <= maxVal; j += i) {
+//       pairs -= exactCount[j];
+//     }
+//     exactCount[i] = pairs;
+//   }
+
+//   let prefix = new Float64Array(maxVal + 1);
+//   let currentSum = 0;
+//   for (let i = 1; i <= maxVal; i++) {
+//     currentSum += exactCount[i];
+//     prefix[i] = currentSum;
+//   }
+//   let answer = [];
+//   for (let q of queries) {
+//     let target = q + 1;
+
+//     let left = 1;
+//     let right = maxVal;
+//     let res = maxVal;
+
+//     while (left <= right) {
+//       let mid = (left + right) >> 1;
+
+//       if (prefix[mid] >= target) {
+//         res = mid;
+
+//         right = mid - 1;
+//       } else {
+//         left = mid + 1;
+//       }
+//     }
+//     answer.push(res);
+//   }
+
+//   return answer;
+// };

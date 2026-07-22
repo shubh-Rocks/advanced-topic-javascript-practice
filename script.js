@@ -895,13 +895,25 @@
 //   return answer;
 // };
 
-let num = 12348;
+// let num = 12348;
 
-let reverse = 0;
+// let reverse = 0;
 
-while (num > 0) {
-  digit = num % 10;
-  reverse = reverse * 10 + digit;
-  num = Math.floor(num / 10);
-}
-console.log(reverse);
+// while (num > 0) {
+//   digit = num % 10;
+//   reverse = reverse * 10 + digit;
+//   num = Math.floor(num / 10);
+// }
+// console.log(reverse);
+
+// const str = ["shubh", "shubh"];
+
+// let strs = str[0]
+// let strss = str[1]
+
+// let c = ""+strs+strss
+
+// str.push("mishra"+"mishr")
+// console.log(str);
+
+

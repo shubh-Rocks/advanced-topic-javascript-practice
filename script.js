@@ -960,38 +960,51 @@
 
 // console.log(temp);
 
-let arr = [1, 2, 3, 4, 5];
-let k = 1 % arr.length;
-reverse(0, k - 1);
-reverse(k, arr.length - 1);
-reverse(0, arr.length - 1);
+// let arr = [1, 2, 3, 4, 5];
+// let k = 1 % arr.length;
+// reverse(0, k - 1);
+// reverse(k, arr.length - 1);
+// reverse(0, arr.length - 1);
 
-console.log(arr);
+// console.log(arr);
 
-function reverse(i, j) {
-  while (i < j) {
-    let temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-    i++;
-    j--;
-  }
-}
+// function reverse(i, j) {
+//   while (i < j) {
+//     let temp = arr[i];
+//     arr[i] = arr[j];
+//     arr[j] = temp;
+//     i++;
+//     j--;
+//   }
+// }
 
-let arr = [1, 2, 3, 4, 5];
-let k = 2 % arr.length;
-reverse(0, arr.length - 1);
-reverse(k, arr.length - 1);
-reverse(0, k - 1);
+// let arr = [1, 2, 3, 4, 5];
+// let k = 2 % arr.length;
+// reverse(0, arr.length - 1);
+// reverse(k, arr.length - 1);
+// reverse(0, k - 1);
 
-console.log(arr);
+// console.log(arr);
 
-function reverse(i, j) {
-  while (i < j) {
-    let temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-    i++;
-    j--;
-  }
-}
+// function reverse(i, j) {
+//   while (i < j) {
+//     let temp = arr[i];
+//     arr[i] = arr[j];
+//     arr[j] = temp;
+//     i++;
+//     j--;
+//   }
+// }
+
+var removeElement = function(nums, val) {
+    let k = 0;
+    
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== val) {
+            nums[k] = nums[i];
+            k++;
+        }
+    }
+    
+    return k;
+};

@@ -996,15 +996,46 @@
 //   }
 // }
 
-var removeElement = function(nums, val) {
-    let k = 0;
-    
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] !== val) {
-            nums[k] = nums[i];
-            k++;
-        }
-    }
-    
-    return k;
+// var removeElement = function (nums, val) {
+//   let k = 0;
+
+//   for (let i = 0; i < nums.length; i++) {
+//     if (nums[i] !== val) {
+//       nums[k] = nums[i];
+//       k++;
+//     }
+//   }
+
+//   return k;
+// };
+
+let height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1];
+
+var trap = function (height) {
+  let left = new Array(height.length);
+  let right = new Array(height.length);
+  let leftMax = height[0];
+  let rightMax = height[height.length - 1];
+
+  ((left[0] = leftMax), (right[right.length - 1] = rightMax));
+
+  for (let i = 1; i < height.length; i++) {
+    leftMax = Math.max(height[i], leftMax);
+    left[i] = leftMax;
+  }
+
+  for (let j = height.length - 2; j >= 0; j--) {
+    rightMax = Math.max(height[j], rightMax);
+    right[j] = rightMax;
+  }
+
+  let ans = 0;
+
+  for (let k = 0; k < height.length; k++) {
+    ans += Math.min(left[k], right[k]) - height[k];
+  }
+
+  return ans;
 };
+
+console.log(trap(height));

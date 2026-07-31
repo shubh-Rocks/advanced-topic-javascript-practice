@@ -1009,33 +1009,55 @@
 //   return k;
 // };
 
-let height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1];
+// let height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1];
 
-var trap = function (height) {
-  let left = new Array(height.length);
-  let right = new Array(height.length);
-  let leftMax = height[0];
-  let rightMax = height[height.length - 1];
+// var trap = function (height) {
+//   let left = new Array(height.length);
+//   let right = new Array(height.length);
+//   let leftMax = height[0];
+//   let rightMax = height[height.length - 1];
 
-  ((left[0] = leftMax), (right[right.length - 1] = rightMax));
+//   ((left[0] = leftMax), (right[right.length - 1] = rightMax));
 
-  for (let i = 1; i < height.length; i++) {
-    leftMax = Math.max(height[i], leftMax);
-    left[i] = leftMax;
+//   for (let i = 1; i < height.length; i++) {
+//     leftMax = Math.max(height[i], leftMax);
+//     left[i] = leftMax;
+//   }
+
+//   for (let j = height.length - 2; j >= 0; j--) {
+//     rightMax = Math.max(height[j], rightMax);
+//     right[j] = rightMax;
+//   }
+
+//   let ans = 0;
+
+//   for (let k = 0; k < height.length; k++) {
+//     ans += Math.min(left[k], right[k]) - height[k];
+//   }
+
+//   return ans;
+// };
+
+// console.log(trap(height));
+
+var isValid = function (s) {
+  let stack = [];
+  let map = {
+    ")": "(",
+    "}": "{",
+    "]": "[",
+  };
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "(" || s[i] === "{" || s[i] === "[") {
+      stack.push(s[i]);
+    } else {
+      let top = stack.pop();
+      if (top !== map[s[i]]) {
+        return false;
+      }
+    }
   }
 
-  for (let j = height.length - 2; j >= 0; j--) {
-    rightMax = Math.max(height[j], rightMax);
-    right[j] = rightMax;
-  }
-
-  let ans = 0;
-
-  for (let k = 0; k < height.length; k++) {
-    ans += Math.min(left[k], right[k]) - height[k];
-  }
-
-  return ans;
+  return stack.length === 0;
 };
-
-console.log(trap(height));

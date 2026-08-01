@@ -1040,24 +1040,55 @@
 
 // console.log(trap(height));
 
-var isValid = function (s) {
-  let stack = [];
-  let map = {
-    ")": "(",
-    "}": "{",
-    "]": "[",
-  };
+// var isValid = function (s) {
+//   let stack = [];
+//   let map = {
+//     ")": "(",
+//     "}": "{",
+//     "]": "[",
+//   };
 
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] === "(" || s[i] === "{" || s[i] === "[") {
-      stack.push(s[i]);
-    } else {
-      let top = stack.pop();
-      if (top !== map[s[i]]) {
-        return false;
+//   for (let i = 0; i < s.length; i++) {
+//     if (s[i] === "(" || s[i] === "{" || s[i] === "[") {
+//       stack.push(s[i]);
+//     } else {
+//       let top = stack.pop();
+//       if (top !== map[s[i]]) {
+//         return false;
+//       }
+//     }
+//   }
+
+//   return stack.length === 0;
+// };
+
+
+var threeSum = function (nums) {
+  nums.sort((a, b) => a - b);
+  let ans = [];
+
+  for (let i = 0; i < nums.length; i++) {
+    if (i > 0 && nums[i] === nums[i - 1]) {
+      continue;
+    }
+    let j = i + 1,
+      k = nums.length - 1;
+
+    while (j < k) {
+      let sum = nums[i] + nums[j] + nums[k];
+      if (sum < 0) {
+        j++;
+      } else if (sum > 0) {
+        k--;
+      } else {
+        ans.push([nums[i], nums[j], nums[k]]);
+        (j++, k--);
+        while (j < k && nums[j] === nums[j - 1]) {
+          j++;
+        }
       }
     }
   }
 
-  return stack.length === 0;
+  return arr;
 };

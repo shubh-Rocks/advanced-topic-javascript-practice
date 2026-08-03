@@ -1062,33 +1062,112 @@
 //   return stack.length === 0;
 // };
 
+// var threeSum = function (nums) {
+//   nums.sort((a, b) => a - b);
+//   let ans = [];
 
-var threeSum = function (nums) {
-  nums.sort((a, b) => a - b);
-  let ans = [];
+//   for (let i = 0; i < nums.length; i++) {
+//     if (i > 0 && nums[i] === nums[i - 1]) {
+//       continue;
+//     }
+//     let j = i + 1,
+//       k = nums.length - 1;
 
-  for (let i = 0; i < nums.length; i++) {
-    if (i > 0 && nums[i] === nums[i - 1]) {
-      continue;
-    }
-    let j = i + 1,
-      k = nums.length - 1;
+//     while (j < k) {
+//       let sum = nums[i] + nums[j] + nums[k];
+//       if (sum < 0) {
+//         j++;
+//       } else if (sum > 0) {
+//         k--;
+//       } else {
+//         ans.push([nums[i], nums[j], nums[k]]);
+//         (j++, k--);
+//         while (j < k && nums[j] === nums[j - 1]) {
+//           j++;
+//         }
+//       }
+//     }
+//   }
 
-    while (j < k) {
-      let sum = nums[i] + nums[j] + nums[k];
-      if (sum < 0) {
-        j++;
-      } else if (sum > 0) {
-        k--;
-      } else {
-        ans.push([nums[i], nums[j], nums[k]]);
-        (j++, k--);
-        while (j < k && nums[j] === nums[j - 1]) {
-          j++;
-        }
-      }
-    }
-  }
+//   return arr;
+// };
 
-  return arr;
-};
+// var fourSum = function (nums, target) {
+//   nums.sort((a, b) => a - b);
+//   let ans = [];
+
+//   for (let i = 0; i < nums.length; i++) {
+//     for (let j = i + 1; j < num.length; j++) {
+//       let k = j + 1;
+//       let l = nums.length - 1;
+
+//       while (k < l) {
+//         let sum = nums[i] + nums[j] + nums[k] + nums[l];
+
+//         if (sum > target) {
+//           l--;
+//         } else if (sum < target) {
+//           k++;
+//         } else if (sum === target) {
+//           ans.push([nums[i], nums[j], nums[k], nums[l]])(k++, l--);
+//         }
+//       }
+//     }
+//   }
+//   return ans;
+// };
+
+// function recursion(n){
+//   if(n===-10)return
+//   console.log("hii")
+//   recursion(n-1)
+// }
+
+// console.log(recursion(5))
+
+// function recursion(n) {
+//   if (n === 0) return;
+//   console.log(n);
+//   recursion(n - 1);
+// }
+
+// console.log(recursion(10));
+
+// function recursion(n) {
+//   if (n === 0) return;
+//   recursion(n - 1);
+//   console.log(n);
+// }
+
+// console.log(recursion(10));
+
+// function recursion(n) {
+//   if (n === 0) return;
+//   recursion(n - 1);
+//   console.log(n + recursion(n));
+// }
+
+// recursion(5);
+
+// var threeSumClosest = function (nums, target) {
+//   nums.sort((a, b) => a - b);
+//   let length = nums.length;
+//   let result = 100000000;
+//   for (let i = 0; i < nums.length; i++) {
+//     let j = i+1;
+//     let k = length - 1;
+//     while (j < k) {
+//       let sum = nums[i] + nums[k] + nums[j];
+//       if (Math.abs(target - sum) < Math.abs(target - result)) {
+//         result = sum;
+//       }
+
+//       if (sum < target) {
+//         j++;
+//       } else {
+//         k--;
+//       }
+//     }
+//   }
+//   return result;
+// };

@@ -1171,3 +1171,28 @@
 //   }
 //   return result;
 // };
+
+// function fact(n) {
+//   if (n === 0) {
+//     return 1;
+//   }
+
+//   return n * fact(n - 1);
+// }
+
+// console.log(fact(8));
+
+// function gcd(a, b) {
+//   if (a === b) {
+//     return a;
+//   }
+
+//   if (a > b) {
+//     a = a - b;
+//     return gcd(a, b);
+//   } else {
+//     b = b - a;
+//     return gcd(a, b);
+//   }
+// }
+// console.log(gcd(79792242429, 8238904));
